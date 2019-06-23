@@ -1,7 +1,13 @@
-#Andrey9654
+# Built application files
+*.apk
+*.ap_
+*.aab
 
-i:Gradle files
-.rradle/
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle files
+.gradle/
 
 # User-specific configurations
 *.iml
@@ -14,3 +20,13 @@ i:Gradle files
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Version control
+vcs.xml
+
+# lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+lint/reports/
