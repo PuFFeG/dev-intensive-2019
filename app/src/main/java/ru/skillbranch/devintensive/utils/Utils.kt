@@ -4,7 +4,6 @@ import ru.skillbranch.devintensive.models.User
 
 object Utils {
     fun parseFullName(fullName:String?):Pair<String?, String?>{
-        //todo fix me GREEEEN
         val parts : List<String>? = when(fullName)
         {
             " " -> null
@@ -22,6 +21,18 @@ return "ZZZZZ"
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-return "XXXX"
+        var inititals : String? = when(firstName){
+            " " -> null
+            "" -> null
+            else -> firstName?.substring(0, 1)?.toUpperCase()?.trim()
+        }
+        when(lastName){
+            " " -> null
+            "" -> null
+            null -> null
+            else -> if(inititals == null)inititals = lastName?.substring(0,1)?.toUpperCase().trim() else inititals += lastName?.substring(0,1)?.toUpperCase().trim()
+        }
+
+        return inititals
     }
 }

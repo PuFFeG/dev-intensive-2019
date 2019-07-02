@@ -14,7 +14,7 @@ abstract class BaseMessage (
     abstract fun formatMessage():String
     companion object AbstractFactory{
         var lastID = -1;
-        fun makeMessage(from:User?, chat:Chat, date:Date = Date(), type:String = "text", payload: Any?) :BaseMessage{
+        fun makeMessage(from:User?, chat:Chat, date:Date = Date(), type:String = "text", payload: Any?, isIncoming: Boolean = false) :BaseMessage{
 lastID++
             return when(type){
 "image" -> ImageMessage("$lastID", from, chat, date=date, image = payload as String)
