@@ -1,5 +1,6 @@
 package ru.skillbranch.devintensive.utils
 
+import android.icu.text.Transliterator
 import ru.skillbranch.devintensive.models.User
 
 object Utils {
@@ -16,23 +17,26 @@ object Utils {
         return firstName to lastName
     }
 
-    fun transliteration(payload: String, divider:String = ""): String {
-return "ZZZZZ"
+    fun transliteration(payload: String, divider:String = " "): String {
+return "ddd"
+
     }
 
-    fun toInitials(firstName: String?, lastName: String?): String? {
-        var inititals : String? = when(firstName){
-            " " -> null
-            "" -> null
-            else -> firstName?.substring(0, 1)?.toUpperCase()?.trim()
-        }
-        when(lastName){
-            " " -> null
-            "" -> null
-            null -> null
-            else -> if(inititals == null)inititals = lastName?.substring(0,1)?.toUpperCase().trim() else inititals += lastName?.substring(0,1)?.toUpperCase().trim()
-        }
+            fun toInitials(firstName: String?, lastName: String?): String? {
+                var inititals: String? = when (firstName) {
+                    " " -> null
+                    "" -> null
+                    else -> firstName?.substring(0, 1)?.toUpperCase()?.trim()
+                }
+                when (lastName) {
+                    " " -> null
+                    "" -> null
+                    null -> null
+                    else -> if (inititals == null) inititals =
+                        lastName?.substring(0, 1)?.toUpperCase().trim() else inititals += lastName?.substring(0, 1)
+                        ?.toUpperCase().trim()
+                }
 
-        return inititals
-    }
-}
+                return inititals
+            }
+        }
