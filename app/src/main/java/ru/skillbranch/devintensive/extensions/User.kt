@@ -21,3 +21,16 @@ fun User.toUserView() : UserView{
         )
 }
 
+fun String.stripHtml(): String? = this.replace("[\\s]+".toRegex(), " ").replace(Regex("<(/?[^>]+)>"),"").replace(Regex("&(.+);"),"")
+
+fun String.truncate(value:Int=16):String{
+    if(this.length-1<=value)
+        return this
+    val result = this.trimStart().substring(0,value+1)
+    if (result[result.length-1].isWhitespace()){
+        return result.trim()}
+    if(value+2<=this.length-1&&this.trimStart()[value+2].isWhitespace()){
+        return result
+    }
+    else return "$result..."
+}

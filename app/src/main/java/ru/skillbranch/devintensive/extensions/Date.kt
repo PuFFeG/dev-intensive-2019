@@ -7,6 +7,10 @@ const val MINUTE = 60 * SECOND
 const val HOUR = 60 * MINUTE
 const val DAY = 24 * HOUR
 
+
+
+
+
 fun Date.format(Pattern:String="HH:mm:ss dd.MM.yy"):String {
     val dateFormat = java.text.SimpleDateFormat(Pattern, Locale("ru"))
     return dateFormat.format(this)
@@ -38,11 +42,13 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         in TimeUnits.HOUR.toMillis(26)..TimeUnits.DAY.toMillis(360) -> TimeUnits.DAY.getDeclentedRepresentation(diff, isInPast)
         else -> if (isInPast) "более года назад" else "более чем через год"
     }
+
 }
 
 enum class TimeUnits(
     private val convertValue: Long,
     private val declentionValues: List<String>
+
 ) {
     SECOND(1000, listOf("секунду", "секунды", "секунд")),
     MINUTE(1000 * 60, listOf("минуту", "минуты", "минут")),
@@ -66,4 +72,11 @@ enum class TimeUnits(
             else -> getDeclentedStringValue(resultValue % 10)
         }
     }
+    fun plural(size :Int) : String
+    {
+
+        return ""
+    }
+
 }
+
